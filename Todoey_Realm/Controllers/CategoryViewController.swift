@@ -21,3 +21,9 @@ extension CategoryViewController {
         self.title = "Categories"
     }
 }
+
+// MARK: - UITableViewDataSource
+
+extension CategoryViewController {
+    
+}

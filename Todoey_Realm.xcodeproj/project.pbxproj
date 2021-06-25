@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		2ECAB1622685AB62009AB045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAB1602685AB62009AB045 /* LaunchScreen.storyboard */; };
 		2ECAB16D2685ABFB009AB045 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB16C2685ABFB009AB045 /* CategoryViewController.swift */; };
 		2ECAB16F2685ACD2009AB045 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB16E2685ACD2009AB045 /* ItemViewController.swift */; };
+		2ECAB1712685AE9D009AB045 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB1702685AE9D009AB045 /* Category.swift */; };
+		2ECAB1732685AFB7009AB045 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB1722685AFB7009AB045 /* Item.swift */; };
 		9DE642DB5EF05C5876576FA4 /* Pods_Todoey_Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4608F42DAF659F57A0701E /* Pods_Todoey_Realm.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		2ECAB1632685AB62009AB045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ECAB16C2685ABFB009AB045 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		2ECAB16E2685ACD2009AB045 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		2ECAB1702685AE9D009AB045 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2ECAB1722685AFB7009AB045 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9939C883B52E60E711549482 /* Pods-Todoey_Realm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey_Realm.release.xcconfig"; path = "Target Support Files/Pods-Todoey_Realm/Pods-Todoey_Realm.release.xcconfig"; sourceTree = "<group>"; };
 		CA4608F42DAF659F57A0701E /* Pods_Todoey_Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todoey_Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70D4ACCF73AC8B1CFE638D8 /* Pods-Todoey_Realm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoey_Realm.debug.xcconfig"; path = "Target Support Files/Pods-Todoey_Realm/Pods-Todoey_Realm.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		2ECAB16B2685AB7F009AB045 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAB1702685AE9D009AB045 /* Category.swift */,
+				2ECAB1722685AFB7009AB045 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,7 +113,6 @@
 				D70D4ACCF73AC8B1CFE638D8 /* Pods-Todoey_Realm.debug.xcconfig */,
 				9939C883B52E60E711549482 /* Pods-Todoey_Realm.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -234,8 +239,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ECAB1562685AB5F009AB045 /* AppDelegate.swift in Sources */,
+				2ECAB1712685AE9D009AB045 /* Category.swift in Sources */,
 				2ECAB16F2685ACD2009AB045 /* ItemViewController.swift in Sources */,
 				2ECAB16D2685ABFB009AB045 /* CategoryViewController.swift in Sources */,
+				2ECAB1732685AFB7009AB045 /* Item.swift in Sources */,
 				2ECAB1582685AB5F009AB045 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -368,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
