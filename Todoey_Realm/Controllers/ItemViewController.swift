@@ -18,6 +18,21 @@ class ItemViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadItems()
+    }
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField: UITextField = UITextField()
+        let alert: UIAlertController = UIAlertController(title: "Add a new item", message: "", preferredStyle: .alert)
+        alert.addTextField { (alertTextField: UITextField) in
+            alertTextField.placeholder = "Enter a new item name"
+            textField = alertTextField
+        }
+        let action: UIAlertAction = UIAlertAction(title: "Add", style: .default) { (action: UIAlertAction) in
+            let text: String = textField.text!
+            self.addItem(with: text)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -50,15 +65,32 @@ extension ItemViewController {
 // MARK: - Create
 
 extension ItemViewController {
-    
+    func addItem(with name: String) {
+        let newItem: Item = Item()
+        newItem.name = name
+        if let currentCategory: Category = self.parentCategory {
+            do {
+                try self.realm.write {
+                    currentCategory.items.append(newItem)
+                    self.realm.add(newItem)
+                }
+            }
+            catch let error {
+                let localizedError: String = error.localizedDescription
+                print(localizedError)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - Read
 
 extension ItemViewController {
     func loadItems() {
-        let predicate: NSPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", self.parentCategory!.name)
-        self.items = self.realm.objects(Item.self).filter(predicate)
+        self.items = self.parentCategory!.items.sorted(byKeyPath: "name", ascending: true)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
