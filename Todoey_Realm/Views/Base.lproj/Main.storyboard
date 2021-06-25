@@ -31,7 +31,13 @@
                             <outlet property="delegate" destination="pFs-0T-P9W" id="KbA-4x-sGL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cxU-Sb-xYl"/>
+                    <navigationItem key="navigationItem" id="cxU-Sb-xYl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yvB-sI-fLD">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="pFs-0T-P9W" id="lmf-81-S8P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="P1K-Ym-fEn" kind="show" identifier="goToItems" id="jJN-Vf-HAw"/>
                     </connections>
