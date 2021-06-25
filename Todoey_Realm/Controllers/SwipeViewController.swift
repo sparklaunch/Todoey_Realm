@@ -11,6 +11,10 @@ import SwipeCellKit
 class SwipeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.superInitialize()
+    }
+    func remove(at index: Int) {
+        // The subclasses will do the task.
     }
 }
 
@@ -40,10 +44,10 @@ extension SwipeViewController: SwipeTableViewCellDelegate {
     }
 }
 
-// MARK: - Delete
+// MARK: - Initialization
 
 extension SwipeViewController {
-    func remove(at index: Int) {
-        // The subclasses will do the task.
+    func superInitialize() {
+        self.tableView.rowHeight = 80
     }
 }

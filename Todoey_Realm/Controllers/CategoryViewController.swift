@@ -31,6 +31,22 @@ class CategoryViewController: SwipeViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    override func remove(at index: Int) {
+        if let targetCategory: Category = self.categories?[index] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(targetCategory)
+                }
+            }
+            catch let error {
+                let localizedError: String = error.localizedDescription
+                print(localizedError)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - Initialization
@@ -48,7 +64,7 @@ extension CategoryViewController {
         return self.categories?.count ?? 1
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell: UITableViewCell = super.tableView(self.tableView, cellForRowAt: indexPath)
         if let category: Category = self.categories?[indexPath.row] {
             cell.textLabel?.text = category.name
         }

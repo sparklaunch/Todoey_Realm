@@ -35,6 +35,22 @@ class ItemViewController: SwipeViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    override func remove(at index: Int) {
+        if let targetItem: Item = self.items?[index] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(targetItem)
+                }
+            }
+            catch let error {
+                let localizedError: String = error.localizedDescription
+                print(localizedError)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - Initialization
@@ -52,7 +68,7 @@ extension ItemViewController {
         return self.items?.count ?? 1
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell: UITableViewCell = super.tableView(self.tableView, cellForRowAt: indexPath)
         if let item: Item = self.items?[indexPath.row] {
             cell.textLabel?.text = item.name
             cell.accessoryType = item.isChecked ? .checkmark : .none
