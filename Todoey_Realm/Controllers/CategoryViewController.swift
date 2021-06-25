@@ -96,6 +96,7 @@ extension CategoryViewController {
     func addCategory(with name: String) {
         let newCategory: Category = Category()
         newCategory.name = name
+        newCategory.created = Date().timeIntervalSince1970
         do {
             try self.realm.write {
                 self.realm.add(newCategory)
@@ -115,13 +116,13 @@ extension CategoryViewController {
 
 extension CategoryViewController {
     func loadCategories() {
-        self.categories = self.realm.objects(Category.self)
+        self.categories = self.realm.objects(Category.self).sorted(byKeyPath: "created", ascending: true)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     func loadCategories(with predicate: NSPredicate) {
-        self.categories = self.realm.objects(Category.self).filter(predicate)
+        self.categories = self.realm.objects(Category.self).filter(predicate).sorted(byKeyPath: "created", ascending: true)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

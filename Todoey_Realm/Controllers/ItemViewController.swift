@@ -54,6 +54,7 @@ extension ItemViewController {
         let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")!
         if let item: Item = self.items?[indexPath.row] {
             cell.textLabel?.text = item.name
+            cell.accessoryType = item.isChecked ? .checkmark : .none
         }
         else {
             cell.textLabel?.text = "No items added yet."
@@ -68,6 +69,7 @@ extension ItemViewController {
     func addItem(with name: String) {
         let newItem: Item = Item()
         newItem.name = name
+        newItem.created = Date().timeIntervalSince1970
         if let currentCategory: Category = self.parentCategory {
             do {
                 try self.realm.write {
@@ -90,7 +92,7 @@ extension ItemViewController {
 
 extension ItemViewController {
     func loadItems() {
-        self.items = self.parentCategory!.items.sorted(byKeyPath: "name", ascending: true)
+        self.items = self.parentCategory!.items.sorted(byKeyPath: "created", ascending: true)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
