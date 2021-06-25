@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 class CategoryViewController: UITableViewController {
+    @IBOutlet var searchBar: UISearchBar!
     let realm: Realm = try! Realm()
     var categories: Results<Category>?
     override func viewDidLoad() {
@@ -58,6 +59,22 @@ extension CategoryViewController {
     }
 }
 
+// MARK: - UISearchBarDelegate
+
+extension CategoryViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let text: String = self.searchBar.text!
+        let predicate: NSPredicate = NSPredicate(format: "name CONTAINS[cd] %@", text)
+        self.loadCategories(with: predicate)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if self.searchBar.text!.count == 0 {
+            self.searchBar.resignFirstResponder()
+            self.loadCategories()
+        }
+    }
+}
+
 // MARK: - Create
 
 extension CategoryViewController {
@@ -84,6 +101,12 @@ extension CategoryViewController {
 extension CategoryViewController {
     func loadCategories() {
         self.categories = self.realm.objects(Category.self)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    func loadCategories(with predicate: NSPredicate) {
+        self.categories = self.realm.objects(Category.self).filter(predicate)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
