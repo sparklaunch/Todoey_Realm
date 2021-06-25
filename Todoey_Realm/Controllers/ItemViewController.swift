@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 
 class ItemViewController: UITableViewController {
+    @IBOutlet var searchBar: UISearchBar!
     var items: Results<Item>?
     let realm: Realm = try! Realm()
     var parentCategory: Category? {
@@ -63,6 +64,43 @@ extension ItemViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension ItemViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedItem: Item = self.items?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    selectedItem.isChecked.toggle()
+                }
+            }
+            catch let error {
+                let localizedError: String = error.localizedDescription
+                print(localizedError)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension ItemViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let text: String = self.searchBar.text!
+        let predicate: NSPredicate = NSPredicate(format: "name CONTAINS[cd] %@", text)
+        self.loadItems(with: predicate)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if self.searchBar.text!.count == 0 {
+            self.searchBar.resignFirstResponder()
+            self.loadItems()
+        }
+    }
+}
+
 // MARK: - Create
 
 extension ItemViewController {
@@ -93,6 +131,12 @@ extension ItemViewController {
 extension ItemViewController {
     func loadItems() {
         self.items = self.parentCategory!.items.sorted(byKeyPath: "created", ascending: true)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    func loadItems(with predicate: NSPredicate) {
+        self.items = self.parentCategory!.items.filter(predicate).sorted(byKeyPath: "created", ascending: true)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
