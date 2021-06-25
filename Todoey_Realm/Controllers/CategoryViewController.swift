@@ -59,6 +59,21 @@ extension CategoryViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension CategoryViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "goToItems", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let selectedRow: Int = self.tableView.indexPathForSelectedRow!.row
+        let destination: ItemViewController = segue.destination as! ItemViewController
+        if let selectedCategory: Category = self.categories?[selectedRow] {
+            destination.parentCategory = selectedCategory
+        }
+    }
+}
+
 // MARK: - UISearchBarDelegate
 
 extension CategoryViewController: UISearchBarDelegate {
