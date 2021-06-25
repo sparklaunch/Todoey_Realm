@@ -10,5 +10,14 @@ import UIKit
 class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initialize()
+    }
+}
+
+// MARK: - Initialization
+
+extension CategoryViewController {
+    func initialize() {
+        self.title = "Categories"
     }
 }

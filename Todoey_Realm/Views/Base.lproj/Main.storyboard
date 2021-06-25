@@ -31,18 +31,50 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cxU-Sb-xYl"/>
+                    <connections>
+                        <segue destination="P1K-Ym-fEn" kind="show" identifier="goToItems" id="jJN-Vf-HAw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rh3-P2-fAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979.71014492753636" y="52.901785714285715"/>
+            <point key="canvasLocation" x="1041" y="53"/>
+        </scene>
+        <!--Item View Controller-->
+        <scene sceneID="0JX-BC-ds2">
+            <objects>
+                <tableViewController id="P1K-Ym-fEn" customClass="ItemViewController" customModule="Todoey_Realm" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1sO-u1-dJe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gbb-TL-jmt">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gbb-TL-jmt" id="GxP-1D-0K1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="P1K-Ym-fEn" id="sm3-uz-iUW"/>
+                            <outlet property="delegate" destination="P1K-Ym-fEn" id="Piv-Zd-DQf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mrR-JS-ZxX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xK7-Uf-WdS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="53"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vai-KT-rXe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rfN-uM-5n4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oy6-R2-mlk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="oy6-R2-mlk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
