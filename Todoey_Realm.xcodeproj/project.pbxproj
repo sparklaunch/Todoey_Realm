@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E10953A2685DBD900885CDC /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1095392685DBD900885CDC /* SwipeViewController.swift */; };
 		2ECAB1562685AB5F009AB045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB1552685AB5F009AB045 /* AppDelegate.swift */; };
 		2ECAB1582685AB5F009AB045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAB1572685AB5F009AB045 /* SceneDelegate.swift */; };
 		2ECAB15D2685AB5F009AB045 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ECAB15B2685AB5F009AB045 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1095392685DBD900885CDC /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		2ECAB1522685AB5F009AB045 /* Todoey_Realm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey_Realm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECAB1552685AB5F009AB045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ECAB1572685AB5F009AB045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				2ECAB16C2685ABFB009AB045 /* CategoryViewController.swift */,
 				2ECAB16E2685ACD2009AB045 /* ItemViewController.swift */,
+				2E1095392685DBD900885CDC /* SwipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				2ECAB16F2685ACD2009AB045 /* ItemViewController.swift in Sources */,
 				2ECAB16D2685ABFB009AB045 /* CategoryViewController.swift in Sources */,
 				2ECAB1732685AFB7009AB045 /* Item.swift in Sources */,
+				2E10953A2685DBD900885CDC /* SwipeViewController.swift in Sources */,
 				2ECAB1582685AB5F009AB045 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

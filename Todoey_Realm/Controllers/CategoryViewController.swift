@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class CategoryViewController: UITableViewController {
+class CategoryViewController: SwipeViewController {
     @IBOutlet var searchBar: UISearchBar!
     let realm: Realm = try! Realm()
     var categories: Results<Category>?
