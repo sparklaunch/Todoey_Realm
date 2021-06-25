@@ -56,15 +56,39 @@
 		2ECAB1542685AB5F009AB045 /* Todoey_Realm */ = {
 			isa = PBXGroup;
 			children = (
+				2ECAB16B2685AB7F009AB045 /* Models */,
 				2ECAB1552685AB5F009AB045 /* AppDelegate.swift */,
 				2ECAB1572685AB5F009AB045 /* SceneDelegate.swift */,
-				2ECAB1592685AB5F009AB045 /* ViewController.swift */,
-				2ECAB15B2685AB5F009AB045 /* Main.storyboard */,
+				2ECAB1692685AB71009AB045 /* Controllers */,
+				2ECAB16A2685AB79009AB045 /* Views */,
 				2ECAB15E2685AB62009AB045 /* Assets.xcassets */,
 				2ECAB1602685AB62009AB045 /* LaunchScreen.storyboard */,
 				2ECAB1632685AB62009AB045 /* Info.plist */,
 			);
 			path = Todoey_Realm;
+			sourceTree = "<group>";
+		};
+		2ECAB1692685AB71009AB045 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAB1592685AB5F009AB045 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2ECAB16A2685AB79009AB045 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2ECAB15B2685AB5F009AB045 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2ECAB16B2685AB7F009AB045 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
